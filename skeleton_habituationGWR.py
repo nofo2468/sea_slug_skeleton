@@ -20,7 +20,7 @@ stv = 4
 
 
 # TODO: set up an input pulse called pls
-pls = [0,,0,1,0,0]
+pls = [0,0,1,0,0]
 
 # TODO: then create a list of 6 pulses, called x, to use for input
 x = pls * 6
@@ -38,11 +38,16 @@ y = np.zeros((1,nTs)) # set up (define) a vector for the output time series
 #        through each time step in 
 #        the input series and calculate
 #        the output at each time step. Ex:
+for t in range(0,nTs):
+    multiple = 0.7
+    y[0, t] = v*x[t]
+    if x[t] > 0:
+        v *= 0.7
 # for ...
 #     then indent 4 spaces and write the equation that
 #     describes how each input value in the vector x is 
 #     transformed to the output value in the vector y
-
+    y[0,t] = v*x[t]
 
 
 ###############################
